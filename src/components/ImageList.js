@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import Dialog from '@material-ui/core/Dialog';
 
 // Importing data locally
-import data from '../data/dogs.json'
+import data from '../data/dogs.json';
+import ImageModal from './ImageModal';
 
 class ImageList extends Component {
   state = {
@@ -20,30 +20,25 @@ class ImageList extends Component {
   };
 
   handleClickClose = () => {
+    console.log('close click')
     this.setState({ open: false });
   };
 
   render() {
     return (
-      <div className="image-list">
+      <div className="dog-image-list">
         <GridList cellHeight={250} cols={3}>
           {data.dogs.map(dog => (
             <GridListTile key={dog.source} onClick={this.handleClickOpen}>
-              <img
-                className="image"
-                src={dog.image}
-                alt={dog.source}
-              />
+              <img src={dog.image} alt={dog.source} />
             </GridListTile>
           ))}
         </GridList>
-        <Dialog
+        <ImageModal
           open={this.state.open}
-          onClose={this.handleClickClose}
-          className="image-dialog"
-        >
-          <img src={this.state.clickedDog} alt={this.state.clickedDog} />
-        </Dialog>
+          clickedDog={this.state.clickedDog}
+          handleClickClose={this.handleClickClose}
+        />
       </div>
     )
   }

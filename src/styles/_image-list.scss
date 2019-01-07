@@ -2,5 +2,18 @@
   ul {
     width: 80%;
     margin: 0 auto !important;
+
+    li {
+      cursor: pointer;
+      width: 30%;
+      height: 200px;
+      padding: 5px;
+    }
+  }
+}
+
+.image-dialog {
+  img {
+    width: 100%;
   }
 }

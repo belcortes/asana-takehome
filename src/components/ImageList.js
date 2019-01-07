@@ -6,12 +6,11 @@ import GridListTile from '@material-ui/core/GridListTile';
 import data from '../data/dogs.json'
 
 const ImageList = () => (
-  <div>
-    {console.log(data)}
-    <GridList>
+  <div className="image-list">
+    <GridList cellHeight={250} cols={3}>
       {data.dogs.map(dog => (
-        <GridListTile key={dog.image} cols={dog.cols || 1}>
-          <img src={dog.image} alt={dog.source}/>
+        <GridListTile key={dog.image}  >
+          <img className="image" src={dog.image} alt={dog.source}/>
         </GridListTile>
       ))}
     </GridList>

@@ -2,6 +2,8 @@
   ul {
     width: 80%;
     margin: 0 auto !important;
+    height: 100vh;
+    overflow: auto;
 
     li {
       cursor: pointer;
@@ -13,7 +15,21 @@
 }
 
 .image-dialog {
+  .MuiDialog-paperWidthSm-14 {
+    max-width: none;
+    max-height: 100%;
+  }
+
   img {
-    width: 100%;
+    height: 100vh;
+  }
+
+  .modal-close-icon {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    color: white;
+    font-size: 40px;
+    pointer-events: none;
   }
 }

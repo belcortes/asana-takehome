@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import Icon from '@material-ui/core/Icon';
 
-// Importing data locally
+// Importing data locally for now
 import data from '../data/dogs.json';
 import ImageModal from './ImageModal';
 
@@ -11,9 +10,10 @@ class ImageList extends Component {
   state = {
     open: false,
     clickedDog: "",
-    visible: 10
+    dogs: data.dogs
   };
 
+  //Trigger modal open
   handleClickOpen = e => {
     this.setState({
       open: true,
@@ -21,6 +21,7 @@ class ImageList extends Component {
     });
   };
 
+  //Trigger modal close
   handleClickClose = () => {
     this.setState({ open: false });
   };
@@ -33,8 +34,9 @@ class ImageList extends Component {
   }
 
   loadMore = () => {
-    this.setState((prev) => {
-      return {visible: prev.visible + 5};
+    this.setState({
+      // Adding repeated images for now
+      dogs: [...this.state.dogs, ...data.dogs]
     });
   }
 
@@ -42,8 +44,8 @@ class ImageList extends Component {
     return (
       <div className="dog-image-list" onScroll={this.handleScroll}>
         <GridList cellHeight={250} cols={this.props.gridListCols} >
-          {data.dogs.slice(0, this.state.visible).map(dog => (
-            <GridListTile key={dog.source} onClick={this.handleClickOpen}>
+          {this.state.dogs.map((dog, i) => (
+            <GridListTile key={i} onClick={this.handleClickOpen}>
               <img src={dog.image} alt={dog.source} />
             </GridListTile>
           ))}

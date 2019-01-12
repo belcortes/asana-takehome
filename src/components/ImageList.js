@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazy-load';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 
@@ -46,7 +47,9 @@ class ImageList extends Component {
         <GridList cellHeight={250} cols={this.props.gridListCols} >
           {this.state.dogs.map((dog, i) => (
             <GridListTile key={i} onClick={this.handleClickOpen}>
+              <LazyLoad height={250}>
               <img src={dog.image} alt={dog.source} />
+              </LazyLoad>
             </GridListTile>
           ))}
         </GridList>

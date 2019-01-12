@@ -20,6 +20,8 @@ Simple application that displays an image grid of dogs up for adoption. Each ima
 ## Stack
    - [React](https://reactjs.org/)
    - [Material UI](https://material-ui.com/) (for styling)
+   - [Heroku](https://www.heroku.com/)
+   - [React Lazy Loading](https://github.com/loktar00/react-lazy-load) (for performance)
 
 ## Application structure
 The bulk of the application is developed in the 'src' folder with the exception of the images.
@@ -37,7 +39,7 @@ The bulk of the application is developed in the 'src' folder with the exception 
   - App.js - where all the components are rendered
 
 ## Notes
-I approached this as an exercise in scalable rapid prototyping. To get something of high quality shipped fast I decided to use React, Material UI, and Heroku. I have also used infinite scrolling for the image grid so the application doesn't load all the images at once - right now I'm re-adding all the dog photos as an example of how to handle more photos in the future.
+I approached this as an exercise in scalable rapid prototyping. To get something of high quality shipped fast I decided to use React, Material UI, and Heroku. I have also used infinite scrolling for the image grid so the application doesn't load all the images at once - right now I'm re-adding all the dog photos as an example of how to handle more photos in the future, as well as lazy loading - the photo does not render until you scroll to it.
 
 ## Asana Instructions
 

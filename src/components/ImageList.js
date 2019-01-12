@@ -47,8 +47,9 @@ class ImageList extends Component {
         <GridList cellHeight={250} cols={this.props.gridListCols} >
           {this.state.dogs.map((dog, i) => (
             <GridListTile key={i} onClick={this.handleClickOpen}>
+              // Lazy loading images
               <LazyLoad height={250}>
-              <img src={dog.image} alt={dog.source} />
+                <img src={dog.image} alt={dog.source} />
               </LazyLoad>
             </GridListTile>
           ))}
